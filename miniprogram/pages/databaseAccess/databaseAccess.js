@@ -1,4 +1,4 @@
-// pages/databaseGuide/databaseGuide.js
+// pages/databaseAccess/databaseAccess.js
 
 const app = getApp()
 
@@ -47,7 +47,7 @@ Page({
     })
   },
 
-  onQuery: function() {
+  onQuery: function () {
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
     db.collection('counters').where({
@@ -69,7 +69,7 @@ Page({
     })
   },
 
-  onCounterInc: function() {
+  onCounterInc: function () {
     const db = wx.cloud.database()
     const newCount = this.data.count + 1
     db.collection('counters').doc(this.data.counterId).update({
@@ -83,12 +83,12 @@ Page({
       },
       fail: err => {
         icon: 'none',
-        console.error('[数据库] [更新记录] 失败：', err)
+          console.error('[数据库] [更新记录] 失败：', err)
       }
     })
   },
 
-  onCounterDec: function() {
+  onCounterDec: function () {
     const db = wx.cloud.database()
     const newCount = this.data.count - 1
     db.collection('counters').doc(this.data.counterId).update({
@@ -102,12 +102,12 @@ Page({
       },
       fail: err => {
         icon: 'none',
-        console.error('[数据库] [更新记录] 失败：', err)
+          console.error('[数据库] [更新记录] 失败：', err)
       }
     })
   },
 
-  onRemove: function() {
+  onRemove: function () {
     if (this.data.counterId) {
       const db = wx.cloud.database()
       db.collection('counters').doc(this.data.counterId).remove({
@@ -157,7 +157,7 @@ Page({
         }
       })
     } else {
-      const callback = this.data.step !== 6 ? function() {} : function() {
+      const callback = this.data.step !== 6 ? function () { } : function () {
         console.group('数据库文档')
         console.log('https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database.html')
         console.groupEnd()
@@ -175,7 +175,7 @@ Page({
     })
   },
 
-  goHome: function() {
+  goHome: function () {
     const pages = getCurrentPages()
     if (pages.length === 2) {
       wx.navigateBack()

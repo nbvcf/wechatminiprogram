@@ -72,7 +72,7 @@ Page({
     // 选择图片
     wx.chooseImage({
       count: 1,
-      sizeType: ['compressed'],
+      sizeType: ['origin'],
       sourceType: ['album', 'camera'],
       success: function (res) {
 
